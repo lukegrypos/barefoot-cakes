@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface ImagePayload {
@@ -214,6 +212,7 @@ function buildEmailHtml(d: FormPayload): string {
 // ─── Route Handler ────────────────────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body: FormPayload = await req.json();
 
