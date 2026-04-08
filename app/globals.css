@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Pacifico&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cinzel:   'Cinzel', 'Palatino Linotype', Georgia, serif;
+  --font-lora:     'Lora', 'Book Antiqua', Palatino, Georgia, serif;
+  --font-pacifico: 'Pacifico', 'Dancing Script', cursive;
+
+  /* Brand colors */
+  --color-mossmoor:    #3B4A35;
+  --color-fernhollow:  #5C7A4E;
+  --color-morningmist: #A8B89A;
+  --color-parchment:   #F5EDD6;
+  --color-hearthstone: #E8D9BB;
+  --color-burrowdust:  #C4A97A;
+  --color-copperpot:   #A0522D;
+  --color-barleygold:  #D4A843;
+  --color-inkwell:     #2A2118;
+  --color-ashwood:     #5C5046;
+  --color-ghostgrass:  #8A8878;
+
+  /* Spacing */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-lora);
+  background-color: var(--color-parchment);
+  color: var(--color-inkwell);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.75;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-hearthstone);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-burrowdust);
+  border-radius: 3px;
+}
+
+/* Input fields */
+.input-field {
+  @apply w-full bg-parchment border border-burrowdust px-4 py-3
+         font-lora text-sm text-inkwell
+         focus:outline-none focus:border-fernhollow
+         transition-all duration-200;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+}
+
+.input-field::placeholder {
+  color: var(--color-ghostgrass);
+  font-style: italic;
+}
+
+.input-field:focus {
+  box-shadow: 0 0 0 3px rgba(92, 122, 78, 0.18);
+}
+
+.select-field {
+  @apply input-field appearance-none cursor-pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232A2118' stroke-width='1.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.label {
+  @apply block font-lora font-medium text-xs tracking-widest uppercase mb-2;
+  color: var(--color-ashwood);
+  letter-spacing: 0.03em;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply font-lora font-semibold text-sm text-white transition-all duration-200;
+  background-color: var(--color-fernhollow);
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  letter-spacing: 0.04em;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-mossmoor);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  @apply font-lora font-medium text-sm transition-all duration-200;
+  background: transparent;
+  color: var(--color-mossmoor);
+  border: 2px solid var(--color-burrowdust);
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-fernhollow);
+  color: var(--color-fernhollow);
+}
+
+/* Divider with leaf motif */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-burrowdust);
+  margin: 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-burrowdust);
+  opacity: 0.6;
+}
+
+/* Decorative line (short accent) */
+.deco-line {
+  width: 48px;
+  height: 1px;
+  background: var(--color-burrowdust);
+  margin: 16px 0;
+}
+
+/* Step animation */
+.step-enter {
+  animation: fadeSlideIn 0.4s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
