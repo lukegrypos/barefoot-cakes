@@ -238,7 +238,7 @@ export async function POST(req: NextRequest) {
     if (result.error) {
       console.error("Resend error:", result.error);
       return NextResponse.json(
-        { error: result.error.message },
+        { error: `Email failed: ${result.error.message}` },
         { status: 500 }
       );
     }
@@ -277,8 +277,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Submission error:", err);
+    const message = err instanceof Error ? err.message : "Failed to send inquiry.";
     return NextResponse.json(
-      { error: "Failed to send inquiry." },
+      { error: message },
       { status: 500 }
     );
   }

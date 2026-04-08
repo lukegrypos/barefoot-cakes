@@ -948,8 +948,8 @@ export default function CakeForm() {
       });
 
       if (!res.ok) {
-        const msg = await res.text();
-        throw new Error(msg || "Something went wrong.");
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Something went wrong — please try again.");
       }
 
       setSubmitted(true);
