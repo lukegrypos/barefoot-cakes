@@ -9,6 +9,10 @@ export const metadata: Metadata = {
     title: "Barefoot Cakes & Makes — Custom Cake Inquiry",
     description: "Tell us a little about the cake you have in mind.",
   },
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
+    apple: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
+  },
 };
 
 export default function RootLayout({
@@ -18,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <body>{children}</body>
     </html>
   );
