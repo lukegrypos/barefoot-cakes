@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     title: "Barefoot Cakes & Makes — Custom Cake Inquiry",
     description: "Tell us a little about the cake you have in mind.",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

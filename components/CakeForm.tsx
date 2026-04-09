@@ -979,10 +979,13 @@ export default function CakeForm() {
         className="border-b bg-parchment/90 backdrop-blur-sm sticky top-0 z-10"
         style={{ borderColor: "rgba(196, 169, 122, 0.35)" }}
       >
-        <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between">
-          <p className="font-cinzel text-lg text-mossmoor tracking-wide">
-            Barefoot Cakes & Makes
-          </p>
+        <div className="max-w-2xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="Barefoot Cakes & Makes" className="h-10 w-auto" />
+            <p className="font-cinzel text-base text-mossmoor tracking-wide">
+              Barefoot Cakes & Makes
+            </p>
+          </div>
           <p className="font-lora text-xs text-ashwood tracking-widest uppercase">
             {STEPS[step - 1].label}
           </p>
